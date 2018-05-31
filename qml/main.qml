@@ -22,6 +22,12 @@ ApplicationWindow {
         id: downloads
     }
 
+    Image {
+        anchors.fill: parent
+        opacity: 0.2
+        source: "qrc:///image/back-pattern.png"
+    }
+
     Rectangle {
         id: logo
         width: parent.width
