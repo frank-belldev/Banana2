@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import Qt.labs.controls 1.0
 import Qt.labs.controls.material 1.0
 import banana.components 1.0
+import QtGraphicalEffects 1.0
 
 ApplicationWindow {
     id: root
@@ -26,6 +27,34 @@ ApplicationWindow {
         anchors.fill: parent
         opacity: 0.2
         source: "qrc:///image/back-pattern.png"
+    }
+
+    LinearGradient {
+        anchors.top: parent.top
+        width: parent.width
+        height: bananaImg.height
+
+        start: Qt.point(0, 0)
+        end: Qt.point(width, 0)
+        gradient: Gradient {
+            GradientStop { position: 0.0; color: "transparent" }
+            GradientStop { position: 0.75; color: "#1F7F7F7F" }
+            GradientStop { position: 1.0; color: "#3F7F7F7F" }
+        }
+        Text {
+            anchors.centerIn: parent
+            font.pointSize: 30
+            text: "Banana downloader"
+            font.bold: true
+            color: "DarkGray"
+        }
+    }
+
+    Image {
+        id: bananaImg
+        anchors.top: parent.top
+        anchors.right: parent.right
+        source: "qrc:///image/banana.png"
     }
 
     Rectangle {
@@ -146,7 +175,9 @@ ApplicationWindow {
                 }
                 TextField {
                     id: url
+                    Material.accent: Material.LightBlue
                     text: "http://www.google.com"
+                    color: "white"
                     font.pointSize: 12
                     implicitWidth: 300
                     placeholderText: qsTr("Enter source URL")
@@ -161,7 +192,9 @@ ApplicationWindow {
                 }
                 TextField {
                     id: file
+                    Material.accent: Material.LightBlue
                     text: "D:/index.html"
+                    color: "white"
                     font.pointSize: 12
                     implicitWidth: 300
                     placeholderText: qsTr("Enter file name")

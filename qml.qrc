@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>image/back-pattern.png</file>
+        <file>image/banana.png</file>
     </qresource>
 </RCC>
